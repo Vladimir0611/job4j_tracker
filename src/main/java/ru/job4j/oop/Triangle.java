@@ -14,16 +14,21 @@ public class Triangle {
     public double period(double a, double b, double c) {
         return (first.distance(second) + first.distance(third) + second.distance(third))/2;
     }
-
-
     public boolean exist(double ab, double ac, double bc) {
-        if (ab > 0) {
-            if (ac > 0) {
-                if (bc > 0) {
+        if (Math.abs(ab - bc) < ac) {
+            if ((ab + bc) > ac) {
+                if (Math.abs(ab - ac) < bc) {
+                    if ((ab + ac) > bc) {
+                        if (Math.abs(bc - ac) < ab) {
+                            if ((bc + ac) > bc) {
                     return true;
                 }
             }
         }
+                }
+            }
+        }
+
         return false;
     }
 
