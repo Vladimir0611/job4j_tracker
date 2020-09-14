@@ -15,22 +15,12 @@ public class Triangle {
         return (first.distance(second) + first.distance(third) + second.distance(third))/2;
     }
     public boolean exist(double ab, double ac, double bc) {
-        if (Math.abs(ab - bc) < ac) {
-            if ((ab + bc) > ac) {
-                if (Math.abs(ab - ac) < bc) {
-                    if ((ab + ac) > bc) {
-                        if (Math.abs(bc - ac) < ab) {
-                            if ((bc + ac) > bc) {
-                    return true;
-                }
-            }
-        }
-                }
-            }
-        }
 
-        return false;
-    }
+        boolean t1 = (ab + ac) > bc;
+        boolean t2 = (bc + ac) > ab;
+        boolean t3 = (bc + ab) > ac;
+        return t1 && t2 && t3;
+        }
 
     public double area() {
         double rsl = -1;
