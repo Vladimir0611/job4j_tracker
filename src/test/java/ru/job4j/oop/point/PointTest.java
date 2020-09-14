@@ -9,5 +9,6 @@ public class PointTest extends TestCase {
         Point b = new Point (3, 3, 6);
         double rsl = a.distance(b);
         System.out.println(rsl);
+
     }
 }
