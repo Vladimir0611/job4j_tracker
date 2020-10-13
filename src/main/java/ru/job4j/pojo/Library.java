@@ -32,10 +32,10 @@ public class Library {
         System.out.println("Shown only Clean code name");
         for (int index = 0; index < books.length; index++) {
             Book b = books[index];
-            if (b.getName() == "Clean Code") {
+            int cmp = b.getName().compareTo("Clean Code");
+            if (cmp == 0) {
                 System.out.println(b.getName() + " - " + b.getNumber());
             }
         }
-
     }
 }
