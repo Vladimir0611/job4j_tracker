@@ -1,7 +1,17 @@
 package ru.job4j.tracker;
 
 public class StartUI {
- Item item = new Item();
+
+ public static void main(String[] arg) {
+
+  Tracker tracker = new Tracker();
+  Item item = new Item();
+  tracker.add(item);
+  System.out.println (tracker.findById(item.getId()));
+
+ }
+}
+
  
 
-}
+
