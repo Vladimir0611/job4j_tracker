@@ -49,7 +49,11 @@ public class Tracker {
     }
 
     public boolean replace(int id, Item item) {
+        int index = indexOf(id);
+        Item current = findById(id);
+        current = item;
 
+        return index != -1 ? true : false;
     }
 
     }
