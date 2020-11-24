@@ -20,7 +20,15 @@ public class Item {
         this.id = id;
     }
 
-    public String getName() {
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    String getName() {
         return name;
     }
 
