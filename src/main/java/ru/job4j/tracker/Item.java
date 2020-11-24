@@ -6,6 +6,7 @@ public class Item {
     private String name;
 
     public Item(String name) {
+        setName(name);
     }
 
     public Item() {

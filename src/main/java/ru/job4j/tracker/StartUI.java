@@ -16,7 +16,7 @@ public class StartUI {
     String name = scanner.nextLine();
     Item item = new Item(name);
     tracker.add(item);
-    item.setName(name);
+
 
 
    } else if (select == 1) {
