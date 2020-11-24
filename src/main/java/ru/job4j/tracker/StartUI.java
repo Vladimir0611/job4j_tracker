@@ -16,13 +16,13 @@ public class StartUI {
     String name = scanner.nextLine();
     Item item = new Item(name);
     tracker.add(item);
-    item.setName(name);
+
 
    } else if (select == 1) {
     Item[] item = tracker.findAll();
     System.out.println("=== Show all Items ====");
     for (int index = 0; index < item.length; index++) {
-     System.out.println(item[index].getName());
+     System.out.println(item[index]);
     }
 
    } else if (select == 2) {
@@ -33,7 +33,6 @@ public class StartUI {
     String name = scanner.nextLine();
     Item item = new Item();
     item.setName(name);
-    tracker.replace(id, item);
     if (tracker.replace(id, item)) {
      System.out.println("Replace had been succes");
     } else {
@@ -44,7 +43,6 @@ public class StartUI {
     System.out.println("=== Delete item ====");
     System.out.println("Enter id:  ");
     int id = Integer.valueOf(scanner.nextLine());
-    tracker.delete(id);
     if (tracker.delete(id)) {
      System.out.println("Delete had been succes");
     } else {
@@ -56,7 +54,7 @@ public class StartUI {
     System.out.println("Enter id:  ");
     int id = Integer.valueOf(scanner.nextLine());
     Item item = tracker.findById(id);
-    if (tracker.findById(id) != null) {
+    if (item != null) {
      System.out.println(item.getName());
     } else {
      System.out.println("Заявка с таким id не найдена");
@@ -67,7 +65,6 @@ public class StartUI {
      System.out.println("Enter name:  ");
      String name = scanner.nextLine();
      Item[] item = tracker.findByName(name);
-     if (tracker.findByName(name) != null) {
       if (item.length > 0) {
        for (int index = 0; index < item.length; index++) {
         System.out.println(item[index]);
@@ -75,7 +72,7 @@ public class StartUI {
       } else {
        System.out.println("Заявки с таким именем не найдены");
       }
-     }
+
    } else if (select == 6) {
     run = false;
    }
