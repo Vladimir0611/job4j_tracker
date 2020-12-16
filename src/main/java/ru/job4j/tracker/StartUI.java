@@ -40,15 +40,15 @@ public class StartUI {
  }
 
  public static void findByIdItem(Input input, Tracker tracker) {
-  System.out.println("=== Find items by name ====");
-  String name = input.askStr("Enter name:  ");
-  Item[] item = tracker.findByName(name);
-  if (item.length > 0) {
-   for (int index = 0; index < item.length; index++) {
-    System.out.println(item[index]);
-   }
+  int id = Integer.valueOf(input.askStr("Enter id:  "));
+  Item item = tracker.findById(id);
+  if (item != null) {
+   System.out.println(item.getName());
+  } else {
+   System.out.println("Заявка с таким id не найдена");
   }
- }
+  }
+
 
  public static void findByName(Input input, Tracker tracker) {
   System.out.println("=== Find items by name ====");
