@@ -2,18 +2,16 @@ package ru.job4j.tracker;
 
 
 public class StartUI {
- String msg = new String();
+
 
  public void init(Input input, Tracker tracker) {
   boolean run = true;
   while (run) {
    this.showMenu();
-   System.out.print("Select: ");
-   int select = Integer.valueOf(input.askStr(msg));
+   int select = Integer.valueOf(input.askStr("Select: "));
    if (select == 0) {
     System.out.println("=== Create a new Item ====");
-    System.out.print("Enter name: ");
-    String name = input.askStr(msg);
+    String name = input.askStr("Enter name: ");
     Item item = new Item(name);
     tracker.add(item);
 
@@ -28,10 +26,8 @@ public class StartUI {
 
    } else if (select == 2) {
     System.out.println("=== Edit item ====");
-    System.out.println("Enter id:  ");
-    int id = Integer.valueOf(input.askStr(msg));
-    System.out.println("Enter name:  ");
-    String name = input.askStr(msg);
+    int id = Integer.valueOf(input.askStr("Enter id:  "));
+    String name = input.askStr("Enter name:  ");
     Item item = new Item();
     item.setName(name);
     if (tracker.replace(id, item)) {
@@ -42,8 +38,7 @@ public class StartUI {
 
    }else if (select == 3) {
     System.out.println("=== Delete item ====");
-    System.out.println("Enter id:  ");
-    int id = Integer.valueOf(input.askStr(msg));
+    int id = Integer.valueOf(input.askStr("Enter id:  "));
     if (tracker.delete(id)) {
      System.out.println("Delete had been succes");
     } else {
@@ -52,8 +47,7 @@ public class StartUI {
 
    }else if (select == 4) {
     System.out.println("=== Find item by id ====");
-    System.out.println("Enter id:  ");
-    int id = Integer.valueOf(input.askStr(msg));
+    int id = Integer.valueOf(input.askStr("Enter id:  "));
     Item item = tracker.findById(id);
     if (item != null) {
      System.out.println(item.getName());
@@ -63,8 +57,7 @@ public class StartUI {
 
    }else if (select == 5) {
      System.out.println("=== Find items by name ====");
-     System.out.println("Enter name:  ");
-     String name = input.askStr(msg);
+     String name = input.askStr("Enter name:  ");
      Item[] item = tracker.findByName(name);
       if (item.length > 0) {
        for (int index = 0; index < item.length; index++) {
