@@ -31,7 +31,7 @@ public class StartUI {
 
  public static void deleteItem(Input input, Tracker tracker) {
   System.out.println("=== Delete item ====");
-  int id = Integer.valueOf(input.askStr("Enter id:  "));
+  int id = Integer.valueOf(input.askInt("Enter id:  "));
   if (tracker.delete(id)) {
    System.out.println("Delete had been succes");
   } else {
