@@ -25,11 +25,11 @@ public class Matches {
                     continue;
                 }
 
-                    if (quantity == 0) {
-                    System.out.println("Игрок " + i + "  победил");
-                    break;
-                }
                 i++;
+            }
+            if (quantity == 0) {
+                System.out.println("Игрок " + i + "  победил");
+                break;
             }
             i = 1;
         }
