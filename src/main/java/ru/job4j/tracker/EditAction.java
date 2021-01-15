@@ -14,6 +14,8 @@ public class EditAction implements UserAction{
         item.setName(name);
         if (tracker.replace(id, item)) {
             System.out.println("Replace had been succes");
+        } else {
+            System.out.println("Replace had been failed");
         }
         return true;
     }
