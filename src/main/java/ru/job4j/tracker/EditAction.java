@@ -14,15 +14,15 @@ public class EditAction implements UserAction{
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Edit Item ====");
+        out.println("=== Edit Item ====");
         int id = Integer.valueOf(input.askStr("Enter id:  "));
         String name = input.askStr("Enter name:  ");
         Item item = new Item();
         item.setName(name);
         if (tracker.replace(id, item)) {
-            System.out.println("Replace had been succes");
+            out.println("Replace had been succes");
         } else {
-            System.out.println("Replace had been failed");
+            out.println("Replace had been failed");
         }
         return true;
     }
