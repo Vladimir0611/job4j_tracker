@@ -1,6 +1,9 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import java.util.Arrays;
+
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
@@ -34,6 +37,10 @@ public class StartUITest {
             );
             Tracker tracker = new Tracker();
 
+            Item item = new Item();
+            item.setName("item");
+            tracker.add(item);
+
             UserAction[] actions = {
                     new ShowAction(out),
                     new ExitAction(out)
@@ -45,6 +52,7 @@ public class StartUITest {
                                     "0. Show all Items " + System.lineSeparator() +
                                     "1. Exit" + System.lineSeparator() +
                                     "=== Show all Items ====" + System.lineSeparator() +
+                                    "Item{id=1, name='item'}" + System.lineSeparator() +
                                     "Menu." + System.lineSeparator() +
                                     "0. Show all Items " + System.lineSeparator() +
                                     "1. Exit" + System.lineSeparator()
@@ -56,9 +64,14 @@ public class StartUITest {
     public void whenFindByName() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "name", "1"}
+                new String[] {"0", "item", "1"}
         );
         Tracker tracker = new Tracker();
+
+        Item item = new Item();
+        item.setName("item");
+        tracker.add(item);
+
         UserAction[] actions = {
                 new FindByNameAction(out),
                 new ExitAction(out)
@@ -70,7 +83,7 @@ public class StartUITest {
                                 "0. Find by name" + System.lineSeparator() +
                                 "1. Exit" + System.lineSeparator() +
                                 "=== Find items by name ====" + System.lineSeparator() +
-                                "Заявки с таким именем не найдены" + System.lineSeparator() +
+                                "item" + System.lineSeparator() +
                                 "Menu." + System.lineSeparator() +
                                 "0. Find by name" + System.lineSeparator() +
                                 "1. Exit" + System.lineSeparator()
@@ -85,6 +98,11 @@ public class StartUITest {
                 new String[] {"0", "1", "1"}
         );
         Tracker tracker = new Tracker();
+
+        Item item = new Item();
+        item.setName("item");
+        tracker.add(item);
+
         UserAction[] actions = {
                 new FindByIdAction(out),
                 new ExitAction(out)
@@ -96,7 +114,7 @@ public class StartUITest {
                                 "0. Find by id" + System.lineSeparator() +
                                 "1. Exit" + System.lineSeparator() +
                                 "=== Find Item By Id ====" + System.lineSeparator()+
-                                "Заявка с таким id не найдена" + System.lineSeparator() +
+                                "item" + System.lineSeparator() +
                                 "Menu." + System.lineSeparator() +
                                 "0. Find by id" + System.lineSeparator() +
                                 "1. Exit" + System.lineSeparator()
@@ -104,4 +122,5 @@ public class StartUITest {
                 )
         ));
     }
+
 }
