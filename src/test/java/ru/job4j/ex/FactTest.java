@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
 public class FactTest{
     @Test(expected = IllegalArgumentException.class)
     public void testFact() {
-        int rsl = Fact.calc(4);
+        int rsl = Fact.calc(-1);
         assertThat(rsl, is(24));
     }
 }
