@@ -21,11 +21,10 @@ public class Tracker {
     public Item[] findByName(String key) {
         Item[] find = new Item[size];
         int findSize = 0;
-        for (int index = 0; index < size; index++) {
-            Item name = this.items[index];
+        for (int index = 0; index < findSize++; index++) {
+            Item name = this.items[size];
             if (name.getName().equals(key)) {
                 find[size] = name;
-                size++;
             }
         }
         return Arrays.copyOf(find, findSize);
