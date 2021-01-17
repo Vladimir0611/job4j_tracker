@@ -8,7 +8,8 @@ package ru.job4j.ex;
             for (int index = 0; index < shops.length; index++) {
                 String el = shops[index];
                 if (el != null) {
-                    max = max + el.length();
+                    if (el.length() > max)
+                    max = el.length();
                 }
             }
             System.out.println("Max length : " + max);
