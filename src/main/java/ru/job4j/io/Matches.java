@@ -5,16 +5,22 @@ import java.util.Scanner;
 public class Matches {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        System.out.println("Игра 11.");
         int quantity = 11;
-        int i = 1;
+        boolean turn = true;
         while (quantity > 0) {
-            while (i < 3) {
-                System.out.println("Количество спичек на столе:" + quantity);
-                System.out.println("Игрок " + i + " берет спички: ");
-                int select = Integer.valueOf(input.nextLine());
+
+                String player = turn ? "Первый игрок" : "Второй игрок";
+                System.out.println(player + " введите число от 1 до 3:");
+                turn = !turn;
+                int wrong = 1;
+                while (wrong == 1) {
+                    int select = Integer.parseInt(input.nextLine());
                 if (select <= 3 && select >= 1 && select <= quantity) {
                     quantity = quantity - select;
-                    System.out.println("Количество спичек взятое Игроком " + i + " : " + select);
+                    System.out.println("Количество спичек которое взял " + player + " : " + select);
+                    System.out.println("Количество спичек на столе: " + quantity);
+                    wrong = 0;
 
                 } else {
                     if (select > quantity) {
@@ -22,16 +28,15 @@ public class Matches {
                     } else {
                         System.out.println("Необходимо взять от 1 до 3 спичек:");
                     }
+                    continue;
                 }
-                i++;
-                continue;
-
             }
-            if (quantity == 0) {
-                System.out.println("Игрок " + i + "  победил");
-                break;
+        }
+            if (!turn) {
+                System.out.println("Выиграл первый игрок");
+            } else {
+                System.out.println("Выиграл второй игрок");
             }
-            i = 1;
         }
     }
-}
+
