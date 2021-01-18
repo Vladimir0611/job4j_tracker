@@ -28,7 +28,6 @@ public class Matches {
                     } else {
                         System.out.println("Необходимо взять от 1 до 3 спичек:");
                     }
-                    continue;
                 }
             }
         }
