@@ -22,10 +22,10 @@ public class Matches {
                     } else {
                         System.out.println("Необходимо взять от 1 до 3 спичек:");
                     }
-                    continue;
                 }
-
                 i++;
+                continue;
+
             }
             if (quantity == 0) {
                 System.out.println("Игрок " + i + "  победил");
