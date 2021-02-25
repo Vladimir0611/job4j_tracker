@@ -16,7 +16,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0"}
         );
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();;
         UserAction[] actions = {
                 new ExitAction(out)
         };
@@ -35,7 +35,7 @@ public class StartUITest {
             Input in = new StubInput(
                     new String[] {"0", "1"}
             );
-            Tracker tracker = new Tracker();
+            Tracker tracker = Tracker.getInstance();
 
             Item item = new Item();
             item.setName("item");
@@ -66,7 +66,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[] {"0", "item", "1"}
         );
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
 
         Item item = new Item();
         item.setName("item");
@@ -97,7 +97,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[] {"0", "1", "1"}
         );
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
 
         Item item = new Item();
         item.setName("item");
@@ -128,7 +128,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[] { "1", "0" }
         );
-        Tracker tracker = new Tracker();
+        Tracker tracker = Tracker.getInstance();
         UserAction[] actions = {
                 new ExitAction(out)
         };
